@@ -2,10 +2,8 @@
 # @Title: Logistic Regression
 # @Date: July 01 2017
 # @Description: 
-# - Logistic regression algorithm
-#   with different solution, such as 
-#   'Gradient Descent method', 'Newton method'
-# - Visualization the processing of iteration.
+# - Logistic regression algorithm by glm function.
+# - Visualization the result of the model.
 
 
 logisticRegression <- function(data, feature, label,trace=FALSE){
