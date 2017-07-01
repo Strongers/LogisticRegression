@@ -35,7 +35,8 @@ logisticRegression <- function(data, feature, label,trace=FALSE){
 }
 
 createLogit <- function(weight, bias, start, end){
-
+  # Generate data which obey the logistic function
+  # The data is for plot a 'logistic' line
   x <- seq(from = (start)-0.7*start, to = end+0.7*end, by=0.001)
   y <- x*weight + bias
   y <- 1/(1+exp(-y))
@@ -55,7 +56,11 @@ modelTest <- logisticRegression(data=dataTest, label = "nomove", feature = "conc
 dataTest$Predict <- predict(modelTest, dataTest, type = "response")
 # Delete duplicate items
 dataTestLine <- dataTest[!duplicated(dataTest$conc),]
+
 # Visualization
+# Visualization the 'logistic' line and the sample
+# the points are sample
+# the blue line is the result of logistic regression
 dataLogit <- createLogit(weight = as.numeric(modelTest$coefficients[2]), bias = as.numeric(modelTest$coefficients[1]),
                          start = min(dataTest$conc), end = max(dataTest$conc))
 
